@@ -4,31 +4,28 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Adam's Salary Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-        Adam&#39;s Salary Calculator<br />
-        <br />
-        Enter Hourly Wage:&nbsp;
-        <asp:TextBox ID="hourly_wageTB" runat="server"></asp:TextBox>
+        <div id="wrap">
+        <h1>Salary Calculator</h1><br />
+        <hr />
+        <div id="main">
+        <p>       
+        Enter Hourly Wage:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:TextBox ID="hourly_wageTB" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RFVhourlywage" runat="server" ControlToValidate="hourly_wageTB" ErrorMessage="Please enter your hourly wage."></asp:RequiredFieldValidator>
-        <br />
-        <br />
+         <br />
         Number of Hours Worked:
         <asp:TextBox ID="hours_workedTB" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RFVhoursworked" runat="server" ControlToValidate="hours_workedTB" ErrorMessage="Please enter the number of hours worked. "></asp:RequiredFieldValidator>
         <br />
-        <br />
-        Pre-Tax Deductions: <asp:TextBox ID="pre_taxTB" runat="server"></asp:TextBox>
+        Pre-Tax Deductions:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="pre_taxTB" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RFVpretax" runat="server" ControlToValidate="pre_taxTB" ErrorMessage="Please enter your Pre-Tax Deductions "></asp:RequiredFieldValidator>
         <br />
-        <br />
-        After-Tax Deductions: <asp:TextBox ID="after_taxTB" runat="server"></asp:TextBox>
+        After-Tax Deductions:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="after_taxTB" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RFVaftertax" runat="server" ControlToValidate="after_taxTB" ErrorMessage="Please enter your Post-Tax Deductions "></asp:RequiredFieldValidator>
-        <br />
         <br />
         <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -36,14 +33,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Resetbt" runat="server" Text="Reset" />
         <br />
+        <%If Not IsPostBack Then%>
+                <br />Welcome to my Salary Calculator. Please complete the fields. 
+                <br />
+            <%Else%>
+                <br />Net Income: <asp:Label ID="netincomeID" runat="server"></asp:Label>        
+                <br />
+            <%End If%>
         <br />
-        Net Income: <asp:Label ID="netincomeID" runat="server"></asp:Label>
         <br />
-        <br />
-        <br />
-        <br />
-    
-    </div>
+        </p>
+        </div>
+    <p id="footer">All contents &copy; Adam Stueckrath</p>
+</div>
+        </>
     </form>
 </body>
 </html>
